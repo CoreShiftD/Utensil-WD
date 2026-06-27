@@ -1,0 +1,28 @@
+[package]
+name = "utensil-wd"
+version = "0.1.0"
+edition = "2021"
+description = "Android background-app watchdog daemon"
+license = "MPL-2.0"
+repository = "https://github.com/CoreShiftD/Utensil-WD"
+homepage = "https://github.com/CoreShiftD/Utensil-WD"
+readme = "README.md"
+keywords = ["android", "watchdog", "cgroup", "battery", "daemon"]
+categories = ["os::linux-apis"]
+
+[[bin]]
+name = "utensil-wd"
+path = "src/main.rs"
+
+[dependencies]
+coreshift-core = "1.2.10"
+coreshift-foreground = "0.1.3"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+debug = 0
+incremental = false
+strip = "none"
