@@ -115,8 +115,9 @@ fn main() {
     let blocklist = Blocklist::load_or_create(WL_CONF, defaults, false);
     let terminal  = TerminalApps::load_or_create(TA_CONF);
 
-    let mut resolver = Resolver::new(cache, blocklist, terminal, launcher.clone());
-    let mut punish   = PunishMap::new();
+    let mut resolver  = Resolver::new(cache, blocklist, terminal, launcher.clone());
+    let mut punish    = PunishMap::new();
+    let mut prev_live: HashSet<String> = HashSet::new(); // empty = first tick is observe-only
     let mut tick: u64 = 0;
 
     let mut reactor = Reactor::new().unwrap_or_else(|e| {
@@ -170,10 +171,15 @@ fn main() {
             }
         }
 
-        // Escalate punishments for surviving background apps.
+        // Escalate only apps present in BOTH this tick and the previous one.
+        // Tick 1: prev_live is empty → observe only, no action.
+        // Tick 2+: apps seen consecutively → kill → freeze → sticky (1h total).
         for pkg in &live_bg {
-            punish.escalate(pkg);
+            if prev_live.contains(pkg) {
+                punish.escalate(pkg);
+            }
         }
+        prev_live = live_bg;
 
         // State persists across process death — punishment escalates when app restarts.
     }
