@@ -13,9 +13,9 @@ dependencies = [
 
 [[package]]
 name = "coreshift-foreground"
-version = "0.1.6"
+version = "0.1.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "617a47b463ac7c9bf66f16663b27847e1cd462fbdcb8cbf494c3614ead29a17d"
+checksum = "e3cf82748f21e35c8c70eefce7ae705d8c9eca49b6ecc88a2c438cc7fb398f06"
 dependencies = [
  "coreshift-core",
 ]
