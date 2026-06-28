@@ -1,6 +1,6 @@
 [package]
 name = "utensil-wd"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "Android background-app watchdog daemon"
 license = "MPL-2.0"
@@ -16,7 +16,7 @@ path = "src/main.rs"
 
 [dependencies]
 coreshift-core = "1.2.12"
-coreshift-foreground = "0.1.7"
+coreshift-foreground = "0.1.9"
 
 [profile.release]
 opt-level = 3

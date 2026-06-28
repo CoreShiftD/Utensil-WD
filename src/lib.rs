@@ -155,7 +155,9 @@ pub fn run() {
         log_info!(TAG, "foreground={:?}", fg_pkg);
 
         if let Some(ref fg) = fg_pkg {
-            punish.reverse(fg);
+            if punish.level(fg) > 0 {
+                punish.reverse(fg);
+            }
         }
 
         let mut live_bg: HashSet<String> = HashSet::new();
