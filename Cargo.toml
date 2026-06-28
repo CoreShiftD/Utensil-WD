@@ -16,7 +16,7 @@ path = "src/main.rs"
 
 [dependencies]
 coreshift-core = "1.2.12"
-coreshift-foreground = "0.1.5"
+coreshift-foreground = "0.1.6"
 
 [profile.release]
 opt-level = 3
