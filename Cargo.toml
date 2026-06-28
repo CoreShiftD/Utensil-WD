@@ -15,8 +15,8 @@ name = "utensil-wd"
 path = "src/main.rs"
 
 [dependencies]
-coreshift-core = "1.2.12"
-coreshift-foreground = "0.1.9"
+coreshift-core = "1.2.13"
+coreshift-foreground = "0.1.10"
 
 [profile.release]
 opt-level = 3
