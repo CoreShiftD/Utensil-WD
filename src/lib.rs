@@ -90,7 +90,7 @@ use std::collections::HashSet;
 use std::time::Duration;
 
 const TAG:       &str = "utensil-wd";
-const TICK_PROP: &str = "debug.tracing.watchdog_tick";
+pub const TICK_PROP: &str = "debug.tracing.watchdog_tick";
 pub const UTENSIL:   &str = "/data/local/tmp/Utensil/";
 pub const WL_CONF:   &str = "/data/local/tmp/Utensil/watchdog_whitelist.conf";
 pub const TA_CONF:   &str = "/data/local/tmp/Utensil/terminal_apps.conf";
